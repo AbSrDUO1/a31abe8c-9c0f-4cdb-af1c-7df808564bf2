@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
-import PageNav from '@/components/common/PageNav';
+import { PageNav } from '@/components/common/PageNav';
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -21,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interTight.variable} antialiased bg-[#f8fafc]`}>{children}</body>
+      <body className={`${interTight.variable} antialiased bg-[#f8fafc]`}>
+        <PageNav position="top" />
+        {children}
+      </body>
     </html>
   );
 }
