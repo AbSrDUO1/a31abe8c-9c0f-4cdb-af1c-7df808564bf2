@@ -50,7 +50,9 @@ export default function Home() {
           title={<h2 className='text-2xl'>Terms and Conditions</h2>}
           description={<p>This is a brief overview of the terms. <a href="#" className="text-underline">Read more.</a></p>}
           className=""
-        />
+        >
+          <></>
+        </ContentTextbox>
       </section>
 
       <section id="policy" className="bg-white py-20">
@@ -58,7 +60,9 @@ export default function Home() {
           title={<h2 className='text-2xl'>Privacy Policy</h2>}
           description={<p>Your privacy is important to us. <a href="#" className="text-underline">Read more.</a></p>}
           className=""
-        />
+        >
+          <></>
+        </ContentTextbox>
       </section>
 
       <section id="contact" className="bg-F7F7F7 py-20">
