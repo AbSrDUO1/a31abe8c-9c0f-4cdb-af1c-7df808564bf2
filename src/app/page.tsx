@@ -1,83 +1,73 @@
 "use client";
-import ArrowButton from '@/components/buttons/ArrowButton';
 import ContentTextbox from '@/components/textbox/ContentTextbox';
-import { useCallback, useState } from 'react';
+import SlideButton from '@/components/buttons/SlideButton';
+import HorizontalTextbox from '@/components/textbox/HorizontalTextbox';
+import GalleryBento from '@/components/bento/galleryBento/GalleryBento';
+import SimpleKPIBento from '@/components/bento/SimpleKPIBento';
+import { useState } from 'react';
 
 export default function Home() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = useCallback(() => {
-    // Handle form submission
-  }, []);
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
 
   return (
     <>
-      <section id="hero" className="bg-[#f7f7fb] py-[72px] flex flex-col items-center">
+      <section id="hero" className="bg-hero py-20">
         <ContentTextbox
-          title={<h1 className="text-4xl font-bold">Welcome to Button Playground</h1>}
-          description={<p className="text-lg">Explore various button styles and their functionalities.</p>}
-        >
-          <ArrowButton
-            text="Get Started"
-            onClick={() => {}}
-            className="mt-4 bg-blue-600 text-white rounded-lg py-2 px-4"
-          />
-        </ContentTextbox>
+          title={<h1 className='text-4xl text-primary'>Button Playground</h1>}
+          description={<p className='text-lg text-secondary'>Explore our button variants in a minimal layout.</p>}
+          children={<SlideButton text="Explore Now" onClick={() => {}} className="bg-primary text-white" />}
+        />
       </section>
-      <section id="variants" className="bg-[#f7f7fb] py-[72px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="flex flex-col items-center">
-            <button className="bg-blue-600 text-white rounded-lg py-2 px-4">Primary</button>
-          </div>
-          <div className="flex flex-col items-center">
-            <button className="bg-gray-300 text-black rounded-lg py-2 px-4">Secondary</button>
-          </div>
-          <div className="flex flex-col items-center">
-            <button className="bg-transparent border border-black text-black rounded-lg py-2 px-4">Ghost</button>
-          </div>
-          <div className="flex flex-col items-center">
-            <button className="bg-gray-200 text-gray-400 rounded-lg py-2 px-4" disabled>Disabled</button>
-          </div>
-        </div>
+
+      <section id="about" className="bg-white py-20">
+        <HorizontalTextbox
+          title={<h2 className='text-3xl text-primary'>About</h2>}
+          description={<p className='text-lg'>This page showcases various button designs and their functionalities.</p>}
+          className="max-w-5xl"
+        />
       </section>
-      <section id="accessibility" className="bg-white py-[72px]">
+
+      <section id="button-demo" className="bg-F7FAFC py-20">
+        <GalleryBento
+          items={[
+            { title: 'Primary', image: '/images/placeholder1.avif' },
+            { title: 'Secondary', image: '/images/placeholder2.avif' },
+            { title: 'Outline', image: '/images/placeholder3.avif' },
+          ]}
+          className="grid grid-cols-3 gap-5"
+          gridClassName="flex"
+        />
+      </section>
+
+      <section id="terms" className="bg-white py-20">
         <ContentTextbox
-          title={<h2 className="text-3xl font-bold">Accessibility Standards</h2>}
-          description={<p className="text-lg">Ensure that your buttons have clear focus-visible states and are navigable via keyboard.</p>}
-        >
-          <></>
-        </ContentTextbox>
+          title={<h2 className='text-2xl'>Terms and Conditions</h2>}
+          description={<p>This is a brief overview of the terms. <a href="#" className="text-underline">Read more.</a></p>}
+        />
       </section>
-      <section id="about" className="bg-soft-noise py-[72px]">
+
+      <section id="policy" className="bg-white py-20">
         <ContentTextbox
-          title={<h2 className="text-3xl font-bold">About This Playground</h2>}
-          description={<p className="text-lg">This project showcases different button types and usage contexts.</p>}
-        >
-          <></>
-        </ContentTextbox>
+          title={<h2 className='text-2xl'>Privacy Policy</h2>}
+          description={<p>Your privacy is important to us. <a href="#" className="text-underline">Read more.</a></p>}
+        />
       </section>
-      <section id="contact" className="bg-[#f7faff] py-[72px]">
-        <form className="flex flex-col max-w-md mx-auto">
-          <label>
-            Name:
-            <input className="border border-gray-300 rounded p-2" value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-          <label>
-            Email:
-            <input type="email" className="border border-gray-300 rounded p-2" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <label>
-            Message:
-            <textarea className="border border-gray-300 rounded p-2" value={message} onChange={(e) => setMessage(e.target.value)} />
-          </label>
-          <ArrowButton
-            text="Submit"
-            onClick={handleSubmit}
-            className="bg-blue-600 text-white rounded-lg py-2 px-4"
-          />
+
+      <section id="contact" className="bg-F7F7F7 py-20">
+        <form onSubmit={handleSubmit} className="max-w-md">
+          <label htmlFor="name" className="block text-sm">Name</label>
+          <input type="text" name="name" className="border rounded p-2 w-full" required />
+          <label htmlFor="email" className="block text-sm">Email</label>
+          <input type="email" name="email" className="border rounded p-2 w-full" required />
+          <label htmlFor="message" className="block text-sm">Message</label>
+          <textarea name="message" className="border rounded p-2 w-full" required></textarea>
+          <SlideButton text="Submit" onClick={handleSubmit} className="bg-primary text-white" />
         </form>
+        {submitted && <p className='text-green-600'>Thank you for your message!</p>}
       </section>
     </>
   );

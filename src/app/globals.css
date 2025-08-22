@@ -5,32 +5,29 @@
     font-family: var(--font-playfair);
   }
 
-  .animate-pulse-scale {
-    animation: pulse-scale 2s ease-in-out 0.5s infinite;
+  /* Custom Button Styles */
+  .bg-primary {
+    background-color: var(--color-primary);
   }
 
-  @keyframes pulse-scale {
-    0% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(0.7);
-    }
-
-    100% {
-      transform: scale(1);
-    }
+  /* Custom Button Hover States */
+  .bg-primary:hover {
+    background-color: var(--color-primary-hover);
   }
+}
 
-  .futuristic-card-bg {
-    background: radial-gradient(57.89% 132% at 65.79% -35%, rgba(120, 123, 255, .06) 0%, rgba(120, 123, 255, 0) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0) 54.17%, rgba(255, 255, 255, .04) 100%),
-      rgba(255, 255, 255, .01);
-  }
+:root {
+  --color-primary: #2563EB;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #374151;
+  --color-accent: #F59E0B;
+  --color-text: #1F2937;
+  --color-background: #F8FAFC;
+}
 
-  .soft-noise {
-    background-image: url('/images/placeholder1.avif');
-    opacity: 0.06;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1F2937;
+    --color-text: #FFFFFF;
   }
 }
