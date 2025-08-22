@@ -1,6 +1,6 @@
 "use client";
-import { ArrowButton } from '@/components/buttons/ArrowButton';
-import { ContentTextbox } from '@/components/textbox/ContentTextbox';
+import ArrowButton from '@/components/buttons/ArrowButton';
+import ContentTextbox from '@/components/textbox/ContentTextbox';
 import { useCallback, useState } from 'react';
 
 export default function Home() {
