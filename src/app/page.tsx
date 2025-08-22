@@ -45,14 +45,18 @@ export default function Home() {
       <section id="accessibility" className="bg-white py-[72px]">
         <ContentTextbox
           title={<h2 className="text-3xl font-bold">Accessibility Standards</h2>}
-          description={<p className="text-lg">Ensure that your buttons have clear focus-visible states and are navigable via keyboard.</p>} 
-        />
+          description={<p className="text-lg">Ensure that your buttons have clear focus-visible states and are navigable via keyboard.</p>}
+        >
+          <></>
+        </ContentTextbox>
       </section>
       <section id="about" className="bg-soft-noise py-[72px]">
         <ContentTextbox
           title={<h2 className="text-3xl font-bold">About This Playground</h2>}
           description={<p className="text-lg">This project showcases different button types and usage contexts.</p>}
-        />
+        >
+          <></>
+        </ContentTextbox>
       </section>
       <section id="contact" className="bg-[#f7faff] py-[72px]">
         <form className="flex flex-col max-w-md mx-auto">
