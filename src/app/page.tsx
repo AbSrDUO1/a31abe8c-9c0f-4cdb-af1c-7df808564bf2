@@ -19,8 +19,10 @@ export default function Home() {
         <ContentTextbox
           title={<h1 className='text-4xl text-primary'>Button Playground</h1>}
           description={<p className='text-lg text-secondary'>Explore our button variants in a minimal layout.</p>}
-          children={<SlideButton text="Explore Now" onClick={() => {}} className="bg-primary text-white" />}
-        />
+          className=""
+        >
+          <SlideButton text="Explore Now" onClick={() => {}} className="bg-primary text-white" />
+        </ContentTextbox>
       </section>
 
       <section id="about" className="bg-white py-20">
@@ -47,6 +49,7 @@ export default function Home() {
         <ContentTextbox
           title={<h2 className='text-2xl'>Terms and Conditions</h2>}
           description={<p>This is a brief overview of the terms. <a href="#" className="text-underline">Read more.</a></p>}
+          className=""
         />
       </section>
 
@@ -54,6 +57,7 @@ export default function Home() {
         <ContentTextbox
           title={<h2 className='text-2xl'>Privacy Policy</h2>}
           description={<p>Your privacy is important to us. <a href="#" className="text-underline">Read more.</a></p>}
+          className=""
         />
       </section>
 
